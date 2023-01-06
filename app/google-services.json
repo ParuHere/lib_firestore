@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "987146159669",
+    "project_id": "borrow-lib",
+    "storage_bucket": "borrow-lib.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987146159669:android:5184343dfc79931f21937c",
+        "android_client_info": {
+          "package_name": "com.example.lib_firestore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987146159669-9j1hhrkh1ul1da6ujdkt2pck3qjvilot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvIARgPkAGlUaMa9XJg-B_aynbRqiuWGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987146159669-9j1hhrkh1ul1da6ujdkt2pck3qjvilot.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

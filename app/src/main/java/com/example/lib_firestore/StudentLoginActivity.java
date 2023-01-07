@@ -82,7 +82,7 @@ public class StudentLoginActivity extends AppCompatActivity {
     }
     public void movetoinfo(){
         finish();
-        Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
+        Intent intent = new Intent(getApplicationContext(), StudentbaseActivity.class);
         startActivity(intent);
     }
 }

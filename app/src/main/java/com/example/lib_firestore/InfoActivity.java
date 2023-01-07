@@ -2,10 +2,13 @@ package com.example.lib_firestore;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,7 +28,7 @@ import com.squareup.picasso.Picasso;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InfoActivity extends AppCompatActivity {
+public class InfoActivity extends Fragment {
 
 
     TextView name,mail;
@@ -42,26 +45,25 @@ public class InfoActivity extends AppCompatActivity {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-
+    public InfoActivity(){}
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-        getSupportActionBar().hide();
+        View view = inflater.inflate(R.layout.fragment_account, container, false);
 
-        name = findViewById(R.id.name);
-        mail = findViewById(R.id.email);
-        logout = findViewById(R.id.logout_button);
-        pic = findViewById(R.id.profilepic);
+        name = view.findViewById(R.id.name);
+        mail = view.findViewById(R.id.email);
+        logout = view.findViewById(R.id.logout_button);
+        pic = view.findViewById(R.id.profilepic);
 
         gso=new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
 
-        gsc= GoogleSignIn.getClient(this, gso);
+        gsc= GoogleSignIn.getClient(getContext(), gso);
 
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getContext());
         if (account!=null){
             String Userid = account.getId();
             String Name = account.getDisplayName();
@@ -83,13 +85,13 @@ public class InfoActivity extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(InfoActivity.this, "User Added ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "User Added ", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(InfoActivity.this, "Errrorr!!!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "Errrorr!!!", Toast.LENGTH_SHORT).show();
                         }
                     });
         }
@@ -101,8 +103,8 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
+        return view;
     }
-
 
 
     private void SignOut() {
@@ -110,8 +112,8 @@ public class InfoActivity extends AppCompatActivity {
         gsc.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                finish();
-                startActivity(new Intent(getApplicationContext(), StudentLoginActivity.class));
+
+                startActivity(new Intent(getContext(), StudentLoginActivity.class));
             }
         });
 

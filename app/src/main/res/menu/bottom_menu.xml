@@ -2,27 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/home3"
+        android:id="@+id/home"
         android:enabled="true"
         android:icon="@drawable/ic_home_2"
         android:title="Home" />
     <item
-        android:id="@+id/search3"
+        android:id="@+id/search"
         android:enabled="true"
         android:icon="@drawable/ic_search"
         android:title="Search" />
     <item
-        android:id="@+id/studentQR3"
+        android:id="@+id/QR"
         android:enabled="true"
         android:icon="@drawable/ic_qr_code_scanner"
         android:title="QR" />
     <item
-        android:id="@+id/studentHistory3"
+        android:id="@+id/History"
         android:enabled="true"
         android:icon="@drawable/ic_history"
         android:title="History" />
     <item
-        android:id="@+id/studentAccount2"
+        android:id="@+id/Account"
         android:enabled="true"
         android:icon="@drawable/ic_acc"
         android:title="Account" />
